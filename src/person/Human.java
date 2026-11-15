@@ -1,20 +1,38 @@
 package person;
 
 public class Human {
-    private String name;
+    private Name name;
     private int height;
+    private Human father;
 
-    public Human(String name, int height) {
+    public Human(Name name, int height, Human father) {
         this.name = name;
         this.height = height;
+        this.father = father;
     }
 
-    public String getName() {
+    public Human(Name name, int height) {
+        this(name, height, null);
+    }
+
+    public Human(String name, int height) {
+        this(new Name(name), height);
+    }
+
+    public Name getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(Name name) {
         this.name = name;
+    }
+
+    public Human getFather() {
+        return father;
+    }
+
+    public void setFather(Human father) {
+        this.father = father;
     }
 
     public int getHeight() {
@@ -27,6 +45,37 @@ public class Human {
 
     @Override
     public String toString() {
-        return name + ", рост: " + height;
+        String first = name == null ? null : name.getFirstName();
+        String last = name == null ? null : name.getLastName();
+        String patronymic = name == null ? null : name.getPatronymic();
+
+        if (father != null && father.getName() != null) {
+            Name fatherName = father.getName();
+            if (!hasText(last)) {
+                last = fatherName.getLastName();
+            }
+            if (!hasText(patronymic) && hasText(fatherName.getFirstName())) {
+                patronymic = fatherName.getFirstName() + "ович";
+            }
+        }
+
+        StringBuilder result = new StringBuilder();
+        appendPart(result, last);
+        appendPart(result, first);
+        appendPart(result, patronymic);
+        return result.toString();
+    }
+
+    private static boolean hasText(String value) {
+        return value != null && !value.isBlank();
+    }
+
+    private static void appendPart(StringBuilder result, String value) {
+        if (hasText(value)) {
+            if (result.length() > 0) {
+                result.append(' ');
+            }
+            result.append(value);
+        }
     }
 }
