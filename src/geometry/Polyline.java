@@ -1,9 +1,14 @@
 package geometry;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Polyline {
     private List<Point> points;
+
+    public Polyline() {
+        this(new ArrayList<>());
+    }
 
     public Polyline(List<Point> points) {
         this.points = points;

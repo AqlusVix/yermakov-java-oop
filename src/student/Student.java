@@ -1,14 +1,18 @@
 package student;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Student {
     private String name;
     private List<Integer> grades;
 
-    public Student(String name, List<Integer> grades) {
+    public Student(String name, int... grades) {
         this.name = name;
-        this.grades = grades;
+        this.grades = new ArrayList<>();
+        for (int grade : grades) {
+            this.grades.add(grade);
+        }
     }
 
     public String getName() {

@@ -46,5 +46,30 @@ public class Main {
         System.out.println(first);
         System.out.println(second);
         //1.3.2
+
+        //1.4.1
+        Point point35 = new Point(3, 5);
+        Point point256 = new Point(25, 6);
+        Point point78 = new Point(7, 8);
+        System.out.println(point35);
+        System.out.println(point256);
+        System.out.println(point78);
+        //1.4.1
+
+        //1.4.2
+        Line line1 = new Line(new Point(1, 3), new Point(23, 8));
+        Line line2 = new Line(5, 10, 25, 10);
+        Line line3 = new Line(line1.getStart(), line2.getEnd());
+        System.out.println(line1);
+        System.out.println(line2);
+        System.out.println(line3);
+        //1.4.2
+
+        //1.4.3
+        Polyline empty = new Polyline();
+        Polyline throughThreePoints = new Polyline(List.of(point35, point256, point78));
+        System.out.println(empty);
+        System.out.println(throughThreePoints);
+        //1.4.3
     }
 }

@@ -5,18 +5,18 @@ public class Name {
     private String lastName;
     private String patronymic;
 
-    public Name(String lastName, String firstName, String patronymic) {
+    public Name(String firstName, String lastName, String patronymic) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.patronymic = patronymic;
     }
 
     public Name(String firstName){
-        this("", firstName, "");
+        this(firstName, "", "");
     }
 
-    public Name(String lastName, String firstName){
-        this(lastName, firstName, "");
+    public Name(String firstName, String lastName){
+        this(firstName, lastName, "");
     }
 
     public String getFirstName() {

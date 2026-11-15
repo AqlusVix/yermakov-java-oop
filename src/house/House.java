@@ -1,7 +1,7 @@
 package house;
 
 public class House {
-    private int numberOfFloors;
+    private final int numberOfFloors;
 
     public House(int numberOfFloors) {
         this.numberOfFloors = numberOfFloors;
@@ -9,10 +9,6 @@ public class House {
 
     public int getNumberOfFloors() {
         return numberOfFloors;
-    }
-
-    public void setNumberOfFloors(int numberOfFloors) {
-        this.numberOfFloors = numberOfFloors;
     }
 
     @Override

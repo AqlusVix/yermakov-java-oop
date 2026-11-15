@@ -19,6 +19,22 @@ public class Human {
         this(new Name(name), height);
     }
 
+    public Human(String name) {
+        this(new Name(name));
+    }
+
+    public Human(Name name) {
+        this(name, 0, null);
+    }
+
+    public Human(Human father, String name) {
+        this(father, new Name(name));
+    }
+
+    public Human(Human father, Name name) {
+        this(name, 0, father);
+    }
+
     public Name getName() {
         return name;
     }

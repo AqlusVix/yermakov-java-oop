@@ -1,5 +1,7 @@
 package city;
 
+import java.util.List;
+
 public class Main {
     public static void main() {
         //1.3.3
@@ -32,5 +34,12 @@ public class Main {
         System.out.println(e);
         System.out.println(f);
         //1.3.3
+
+        //1.4.8
+        City newCity = new City("Новый");
+        City connectedCity = new City("G", List.of(new Route(a, 7), new Route(b, 4)));
+        System.out.println(newCity);
+        System.out.println(connectedCity);
+        //1.4.8
     }
 }

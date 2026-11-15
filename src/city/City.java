@@ -5,10 +5,15 @@ import java.util.List;
 
 public class City {
     private String name;
-    private List<Route> routes = new ArrayList<>();
+    private List<Route> routes;
 
     public City(String name) {
+        this(name, List.of());
+    }
+
+    public City(String name, List<Route> routes) {
         this.name = name;
+        this.routes = new ArrayList<>(routes);
     }
 
     public String getName() {
