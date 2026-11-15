@@ -59,26 +59,38 @@ public class Human {
         this.height = height;
     }
 
+    public String getFirstName() {
+        return name == null ? null : name.getFirstName();
+    }
+
+    public String getPatronymic() {
+        String patronymic = name == null ? null : name.getPatronymic();
+        if (hasText(patronymic)) {
+            return patronymic;
+        }
+        if (father != null && hasText(father.getFirstName())) {
+            return father.getFirstName() + "ович";
+        }
+        return null;
+    }
+
+    public String getLastName() {
+        Human current = this;
+        while (current != null) {
+            if (current.name != null && hasText(current.name.getLastName())) {
+                return current.name.getLastName();
+            }
+            current = current.father;
+        }
+        return null;
+    }
+
     @Override
     public String toString() {
-        String first = name == null ? null : name.getFirstName();
-        String last = name == null ? null : name.getLastName();
-        String patronymic = name == null ? null : name.getPatronymic();
-
-        if (father != null && father.getName() != null) {
-            Name fatherName = father.getName();
-            if (!hasText(last)) {
-                last = fatherName.getLastName();
-            }
-            if (!hasText(patronymic) && hasText(fatherName.getFirstName())) {
-                patronymic = fatherName.getFirstName() + "ович";
-            }
-        }
-
         StringBuilder result = new StringBuilder();
-        appendPart(result, last);
-        appendPart(result, first);
-        appendPart(result, patronymic);
+        appendPart(result, getLastName());
+        appendPart(result, getFirstName());
+        appendPart(result, getPatronymic());
         return result.toString();
     }
 

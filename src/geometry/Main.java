@@ -71,5 +71,30 @@ public class Main {
         System.out.println(empty);
         System.out.println(throughThreePoints);
         //1.4.3
+
+        //1.5.3
+        Line measuredLine = new Line(1, 1, 10, 15);
+        System.out.println("Длина " + measuredLine + ": " + measuredLine.getLength());
+        //1.5.3
+
+        //1.5.7
+        Polyline measuredPolyline = new Polyline(List.of(
+                new Point(1, 5), new Point(2, 8), new Point(5, 3)
+        ));
+        System.out.println("Длина ломаной: " + measuredPolyline.getLength());
+        measuredPolyline.addPoints(new Point(5, 15), new Point(8, 10));
+        System.out.println("Длина после добавления точек: " + measuredPolyline.getLength());
+        //1.5.7
+
+        //1.5.8
+        Square square = new Square(5, 3, 23);
+        Polyline squareOutline = square.toPolyline();
+        System.out.println(square);
+        System.out.println("Длина ломаной квадрата: " + squareOutline.getLength());
+        Point lastPoint = squareOutline.getPoints().get(squareOutline.getPoints().size() - 1);
+        lastPoint.setX(15);
+        lastPoint.setY(25);
+        System.out.println("Длина после сдвига последней точки: " + squareOutline.getLength());
+        //1.5.8
     }
 }

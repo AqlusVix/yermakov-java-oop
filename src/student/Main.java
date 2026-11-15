@@ -30,5 +30,16 @@ public class Main {
         System.out.println(vasyaWithGrades);
         System.out.println(maxim);
         //1.4.7
+
+        //1.5.6
+        Student vasyaForGrades = new Student("Вася", 3, 4, 5, 4);
+        Student petyaForGrades = new Student("Петя", 5, 5, 5, 5);
+        System.out.println(vasyaForGrades + ", средний балл: "
+                + vasyaForGrades.getAverageGrade() + ", отличник: "
+                + vasyaForGrades.isExcellentStudent());
+        System.out.println(petyaForGrades + ", средний балл: "
+                + petyaForGrades.getAverageGrade() + ", отличник: "
+                + petyaForGrades.isExcellentStudent());
+        //1.5.6
     }
 }

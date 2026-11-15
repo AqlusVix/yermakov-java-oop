@@ -11,7 +11,7 @@ public class Polyline {
     }
 
     public Polyline(List<Point> points) {
-        this.points = points;
+        this.points = new ArrayList<>(points);
     }
 
     public List<Point> getPoints() {
@@ -19,7 +19,21 @@ public class Polyline {
     }
 
     public void setPoints(List<Point> points) {
-        this.points = points;
+        this.points = new ArrayList<>(points);
+    }
+
+    public void addPoints(Point... newPoints) {
+        for (Point point : newPoints) {
+            points.add(point);
+        }
+    }
+
+    public int getLength() {
+        int length = 0;
+        for (int i = 1; i < points.size(); i++) {
+            length += new Line(points.get(i - 1), points.get(i)).getLength();
+        }
+        return length;
     }
 
     @Override

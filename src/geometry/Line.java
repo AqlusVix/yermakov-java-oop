@@ -37,6 +37,12 @@ public class Line {
         this.end = new Point(x1, y1);
     }
 
+    public int getLength() {
+        int dx = end.getX() - start.getX();
+        int dy = end.getY() - start.getY();
+        return (int) Math.round(Math.hypot(dx, dy));
+    }
+
     @Override
     public String toString() {
         return "Линия от " + start + " до " + end;

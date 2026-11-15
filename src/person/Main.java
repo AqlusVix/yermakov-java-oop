@@ -51,5 +51,15 @@ public class Main {
         System.out.println(sergey);
         System.out.println(alexander);
         //1.4.6
+
+        //1.5.4
+        Human grandfather = new Human(new Name("Иван", "Чудов"));
+        Human fatherWithoutSurname = new Human(grandfather, "Петр");
+        Human sonWithoutSurname = new Human(fatherWithoutSurname, "Борис");
+        System.out.println("Личное имя: " + sonWithoutSurname.getFirstName());
+        System.out.println("Отчество: " + sonWithoutSurname.getPatronymic());
+        System.out.println("Фамилия деда: " + sonWithoutSurname.getLastName());
+        System.out.println(sonWithoutSurname);
+        //1.5.4
     }
 }

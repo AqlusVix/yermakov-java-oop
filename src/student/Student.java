@@ -31,6 +31,29 @@ public class Student {
         this.grades = grades;
     }
 
+    public double getAverageGrade() {
+        if (grades.isEmpty()) {
+            return 0;
+        }
+        int total = 0;
+        for (int grade : grades) {
+            total += grade;
+        }
+        return (double) total / grades.size();
+    }
+
+    public boolean isExcellentStudent() {
+        if (grades.isEmpty()) {
+            return false;
+        }
+        for (int grade : grades) {
+            if (grade != 5) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     @Override
     public String toString() {
         return name + ": " + grades;
