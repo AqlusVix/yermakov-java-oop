@@ -11,7 +11,7 @@ public class Student {
         this.name = name;
         this.grades = new ArrayList<>();
         for (int grade : grades) {
-            this.grades.add(grade);
+            addGrade(grade);
         }
     }
 
@@ -24,11 +24,32 @@ public class Student {
     }
 
     public List<Integer> getGrades() {
-        return grades;
+        return List.copyOf(grades);
     }
 
     public void setGrades(List<Integer> grades) {
-        this.grades = grades;
+        List<Integer> checked = new ArrayList<>();
+        for (Integer grade : grades) {
+            checkGrade(grade);
+            checked.add(grade);
+        }
+        this.grades = checked;
+    }
+
+    public void addGrade(int grade) {
+        checkGrade(grade);
+        grades.add(grade);
+    }
+
+    public void setGrade(int index, int grade) {
+        checkGrade(grade);
+        grades.set(index, grade);
+    }
+
+    private static void checkGrade(Integer grade) {
+        if (grade == null || grade < 2 || grade > 5) {
+            throw new IllegalArgumentException("Оценка должна быть от 2 до 5");
+        }
     }
 
     public double getAverageGrade() {

@@ -19,5 +19,14 @@ public class Main {
         System.out.println(house91);
         // house2.setNumberOfFloors(3); // Ошибка компиляции: у Дома нет сеттера.
         //1.4.4
+
+        //1.6.1
+        try {
+            new House(-2);
+        } catch (IllegalArgumentException error) {
+            System.out.println(error.getMessage());
+        }
+        System.out.println(new House(4));
+        //1.6.1
     }
 }

@@ -5,8 +5,8 @@ public class Line {
     private Point end;
 
     public Line(Point start, Point end) {
-        this.start = start;
-        this.end = end;
+        setStart(start);
+        setEnd(end);
     }
 
     public Line(int x1, int y1, int x2, int y2){
@@ -14,11 +14,11 @@ public class Line {
     }
 
     public Point getStart() {
-        return start;
+        return new Point(start.getX(), start.getY());
     }
 
     public void setStart(Point start) {
-        this.start = start;
+        this.start = new Point(start.getX(), start.getY());
     }
 
     public void setStart(int x1, int y1){
@@ -26,11 +26,11 @@ public class Line {
     }
 
     public Point getEnd() {
-        return end;
+        return new Point(end.getX(), end.getY());
     }
 
     public void setEnd(Point end) {
-        this.end = end;
+        this.end = new Point(end.getX(), end.getY());
     }
 
     public void setEnd(int x1, int y1){

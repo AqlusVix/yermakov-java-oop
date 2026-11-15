@@ -4,6 +4,9 @@ public class House {
     private final int numberOfFloors;
 
     public House(int numberOfFloors) {
+        if (numberOfFloors <= 0) {
+            throw new IllegalArgumentException("Количество этажей должно быть положительным");
+        }
         this.numberOfFloors = numberOfFloors;
     }
 

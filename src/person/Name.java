@@ -1,11 +1,14 @@
 package person;
 
 public class Name {
-    private String firstName;
-    private String lastName;
-    private String patronymic;
+    private final String firstName;
+    private final String lastName;
+    private final String patronymic;
 
     public Name(String firstName, String lastName, String patronymic) {
+        if (isBlank(firstName) && isBlank(lastName) && isBlank(patronymic)) {
+            throw new IllegalArgumentException("Хотя бы одна часть имени должна быть заполнена");
+        }
         this.firstName = firstName;
         this.lastName = lastName;
         this.patronymic = patronymic;
@@ -23,45 +26,37 @@ public class Name {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public String getLastName() {
         return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public String getPatronymic() {
         return patronymic;
     }
 
-    public void setPatronymic(String patronymic) {
-        this.patronymic = patronymic;
+    private static boolean isBlank(String value) {
+        return value == null || value.isBlank();
     }
 
     @Override
     public String toString() {
         String result = "";
 
-        if (lastName != null && !lastName.isEmpty()) {
+        if (!isBlank(lastName)) {
             if (!result.isEmpty()) {
                 result += " ";
             }
             result += lastName;
         }
 
-        if (firstName != null && !firstName.isEmpty()) {
+        if (!isBlank(firstName)) {
             if (!result.isEmpty()) {
                 result += " ";
             }
             result += firstName;
         }
 
-        if (patronymic != null && !patronymic.isEmpty()) {
+        if (!isBlank(patronymic)) {
             if (!result.isEmpty()) {
                 result += " ";
             }

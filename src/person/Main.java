@@ -61,5 +61,23 @@ public class Main {
         System.out.println("Фамилия деда: " + sonWithoutSurname.getLastName());
         System.out.println(sonWithoutSurname);
         //1.5.4
+
+        //1.6.2
+        Name immutableName = new Name("Анна");
+        System.out.println("Неизменяемое имя: " + immutableName);
+        try {
+            new Name(null, "", " ");
+        } catch (IllegalArgumentException error) {
+            System.out.println(error.getMessage());
+        }
+        // У Name нет сеттеров, поэтому части имени после создания не изменить.
+        //1.6.2
+
+        //1.6.7
+        Human son = new Human(lev, "Михаил");
+        System.out.println("Отец: " + son.getFather());
+        System.out.println("Имя как объект: " + son.getName());
+        // У Human нет сеттера отца: связь задается только в конструкторе.
+        //1.6.7
     }
 }

@@ -1,8 +1,8 @@
 package city;
 
 public class Route {
-    private City destination;
-    private int cost;
+    private final City destination;
+    private final int cost;
 
     public Route(City destination, int cost) {
         this.destination = destination;

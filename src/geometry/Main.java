@@ -21,12 +21,12 @@ public class Main {
         System.out.println(l2);
         System.out.println(l3);
 
-        // Меняем общие точки: третья линия меняется вместе с первыми двумя.
-        l1.getStart().setX(2);
-        l2.getEnd().setY(12);
-        System.out.println("После изменения общих точек: " + l3);
+        // После 1.6.6 линии хранят копии точек, поэтому изменения независимы.
+        l1.setStart(2, 3);
+        l2.setEnd(25, 12);
+        System.out.println("После изменения первых линий: " + l3);
 
-        // Заменяем точку первой линии: прежняя точка остается у третьей.
+        // Замена точки первой линии тоже не меняет третью.
         l1.setStart(new Point(100, 100));
         System.out.println("Первая линия: " + l1);
         System.out.println("Третья линия: " + l3);
@@ -96,5 +96,34 @@ public class Main {
         lastPoint.setY(25);
         System.out.println("Длина после сдвига последней точки: " + squareOutline.getLength());
         //1.5.8
+
+        //1.6.3
+        square.setSide(10);
+        System.out.println("Новая сторона квадрата: " + square.getSide());
+        try {
+            new Square(0, 0, 0);
+        } catch (IllegalArgumentException error) {
+            System.out.println(error.getMessage());
+        }
+        try {
+            square.setSide(-3);
+        } catch (IllegalArgumentException error) {
+            System.out.println(error.getMessage());
+        }
+        //1.6.3
+
+        //1.6.6
+        Point commonPoint = new Point(1, 1);
+        Line separateFirst = new Line(commonPoint, new Point(4, 4));
+        Line separateSecond = new Line(commonPoint, new Point(5, 5));
+        commonPoint.setX(99);
+        Point returnedPoint = separateFirst.getStart();
+        returnedPoint.setY(99);
+        System.out.println("Линии после изменения внешних точек: "
+                + separateFirst + "; " + separateSecond);
+        separateFirst.setStart(2, 2);
+        System.out.println("После изменения первой линии: "
+                + separateFirst + "; " + separateSecond);
+        //1.6.6
     }
 }

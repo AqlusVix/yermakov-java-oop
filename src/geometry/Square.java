@@ -8,11 +8,22 @@ public class Square {
 
     public Square(Point topLeft, int side) {
         this.topLeft = topLeft;
-        this.side = side;
+        setSide(side);
     }
 
     public Square(int x, int y, int side) {
         this(new Point(x, y), side);
+    }
+
+    public int getSide() {
+        return side;
+    }
+
+    public void setSide(int side) {
+        if (side <= 0) {
+            throw new IllegalArgumentException("Сторона квадрата должна быть положительной");
+        }
+        this.side = side;
     }
 
     public Polyline toPolyline() {

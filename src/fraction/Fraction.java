@@ -8,15 +8,20 @@ public class Fraction {
         if (denominator == 0) {
             throw new IllegalArgumentException("Знаменатель не может быть нулем");
         }
-        int divisor = gcd(Math.abs(numerator), Math.abs(denominator));
-        int sign = denominator < 0 ? -1 : 1;
-        this.numerator = sign * numerator / divisor;
-        this.denominator = sign * denominator / divisor;
+        long signedNumerator = numerator;
+        long positiveDenominator = denominator;
+        if (positiveDenominator < 0) {
+            signedNumerator = -signedNumerator;
+            positiveDenominator = -positiveDenominator;
+        }
+        long divisor = gcd(Math.abs(signedNumerator), positiveDenominator);
+        this.numerator = Math.toIntExact(signedNumerator / divisor);
+        this.denominator = Math.toIntExact(positiveDenominator / divisor);
     }
 
-    private static int gcd(int a, int b) {
+    private static long gcd(long a, long b) {
         while (b != 0) {
-            int remainder = a % b;
+            long remainder = a % b;
             a = b;
             b = remainder;
         }

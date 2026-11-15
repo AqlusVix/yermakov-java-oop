@@ -18,5 +18,11 @@ public class Main {
         System.out.println("f1.sum(f2).div(f3).minus(5) = "
                 + f1.sum(f2).div(f3).minus(5));
         //1.5.5
+
+        //1.6.4
+        Fraction negative = new Fraction(2, -4);
+        System.out.println("Отрицательный знаменатель приведен к положительному: " + negative);
+        System.out.println("Исходная дробь после операции: " + f1);
+        //1.6.4
     }
 }

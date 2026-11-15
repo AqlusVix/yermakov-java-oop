@@ -17,5 +17,14 @@ public class Main {
         //1.3.4
         System.out.println(petrov.getDepartment());
         //1.3.4
+
+        //1.6.10
+        Department sales = new Department("Продажи");
+        Employee newManager = new Employee("Иванов", sales);
+        it.setManager(newManager);
+        System.out.println("После назначения начальника: " + it);
+        newManager.setDepartment(sales);
+        System.out.println("После перевода начальника: " + it);
+        //1.6.10
     }
 }

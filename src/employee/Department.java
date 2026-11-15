@@ -25,6 +25,9 @@ public class Department {
     }
 
     public void setManager(Employee manager) {
+        if (manager != null && manager.getDepartment() != this) {
+            manager.setDepartment(this);
+        }
         this.manager = manager;
     }
 
@@ -38,6 +41,9 @@ public class Department {
 
     void removeEmployee(Employee employee) {
         employees.remove(employee);
+        if (manager == employee) {
+            manager = null;
+        }
     }
 
     @Override

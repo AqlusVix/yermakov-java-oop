@@ -3,7 +3,7 @@ package person;
 public class Human {
     private Name name;
     private int height;
-    private Human father;
+    private final Human father;
 
     public Human(Name name, int height, Human father) {
         this.name = name;
@@ -45,10 +45,6 @@ public class Human {
 
     public Human getFather() {
         return father;
-    }
-
-    public void setFather(Human father) {
-        this.father = father;
     }
 
     public int getHeight() {

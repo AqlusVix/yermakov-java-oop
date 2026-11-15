@@ -13,7 +13,10 @@ public class City {
 
     public City(String name, List<Route> routes) {
         this.name = name;
-        this.routes = new ArrayList<>(routes);
+        this.routes = new ArrayList<>();
+        for (Route route : routes) {
+            addRoute(route.getDestination(), route.getCost());
+        }
     }
 
     public String getName() {
@@ -25,7 +28,23 @@ public class City {
     }
 
     public void addRoute(City destination, int cost) {
+        for (int i = 0; i < routes.size(); i++) {
+            if (routes.get(i).getDestination() == destination) {
+                routes.set(i, new Route(destination, cost));
+                return;
+            }
+        }
         routes.add(new Route(destination, cost));
+    }
+
+    public boolean removeRoute(City destination) {
+        for (int i = 0; i < routes.size(); i++) {
+            if (routes.get(i).getDestination() == destination) {
+                routes.remove(i);
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

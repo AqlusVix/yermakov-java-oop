@@ -41,5 +41,16 @@ public class Main {
         System.out.println(newCity);
         System.out.println(connectedCity);
         //1.4.8
+
+        //1.6.9
+        City uniqueRoads = new City("H", List.of(
+                new Route(a, 5), new Route(a, 8), new Route(b, 3)
+        ));
+        System.out.println("После создания: " + uniqueRoads);
+        uniqueRoads.addRoute(a, 10);
+        System.out.println("После обновления дороги: " + uniqueRoads);
+        uniqueRoads.removeRoute(b);
+        System.out.println("После удаления дороги: " + uniqueRoads);
+        //1.6.9
     }
 }
