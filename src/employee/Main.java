@@ -13,5 +13,9 @@ public class Main {
         System.out.println(kozlov);
         System.out.println(sidorov);
         //1.2.4
+
+        //1.3.4
+        System.out.println(petrov.getDepartment());
+        //1.3.4
     }
 }

@@ -1,5 +1,7 @@
 package geometry;
 
+import java.util.List;
+
 public class Main {
     public static void main(){
         //1.1.1
@@ -29,5 +31,20 @@ public class Main {
         System.out.println("Первая линия: " + l1);
         System.out.println("Третья линия: " + l3);
         //1.2.1
+
+        //1.3.2
+        Point sharedStart = new Point(1, 5);
+        Point sharedEnd = new Point(5, 3);
+        Polyline first = new Polyline(List.of(sharedStart, new Point(2, 8), sharedEnd));
+        Polyline second = new Polyline(List.of(sharedStart, new Point(2, -5), new Point(4, -8), sharedEnd));
+
+        System.out.println(first);
+        System.out.println(second);
+        sharedStart.setX(3);
+        sharedStart.setY(6);
+        System.out.println("После сдвига общей точки:");
+        System.out.println(first);
+        System.out.println(second);
+        //1.3.2
     }
 }

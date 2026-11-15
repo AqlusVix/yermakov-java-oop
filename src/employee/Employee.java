@@ -6,7 +6,7 @@ public class Employee {
 
     public Employee(String name, Department department) {
         this.name = name;
-        this.department = department;
+        setDepartment(department);
     }
 
     public String getName() {
@@ -22,7 +22,16 @@ public class Employee {
     }
 
     public void setDepartment(Department department) {
+        if (this.department == department) {
+            return;
+        }
+        if (this.department != null) {
+            this.department.removeEmployee(this);
+        }
         this.department = department;
+        if (department != null) {
+            department.addEmployee(this);
+        }
     }
 
     @Override
