@@ -28,6 +28,10 @@ public class City {
     }
 
     public void addRoute(City destination, int cost) {
+        addDirectRoute(destination, cost);
+    }
+
+    void addDirectRoute(City destination, int cost) {
         for (int i = 0; i < routes.size(); i++) {
             if (routes.get(i).getDestination() == destination) {
                 routes.set(i, new Route(destination, cost));
@@ -38,6 +42,10 @@ public class City {
     }
 
     public boolean removeRoute(City destination) {
+        return removeDirectRoute(destination);
+    }
+
+    boolean removeDirectRoute(City destination) {
         for (int i = 0; i < routes.size(); i++) {
             if (routes.get(i).getDestination() == destination) {
                 routes.remove(i);

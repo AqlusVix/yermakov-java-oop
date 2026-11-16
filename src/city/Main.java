@@ -52,5 +52,20 @@ public class Main {
         uniqueRoads.removeRoute(b);
         System.out.println("После удаления дороги: " + uniqueRoads);
         //1.6.9
+
+        //2.1.3
+        TwoWayCity twoWay = new TwoWayCity("Двусторонний");
+        City neighbor = new City("Соседний");
+        twoWay.addRoute(neighbor, 5);
+        System.out.println(twoWay);
+        System.out.println(neighbor);
+        twoWay.addRoute(neighbor, 8);
+        System.out.println("После обновления: " + twoWay + "; " + neighbor);
+        twoWay.removeRoute(neighbor);
+        System.out.println("После удаления: " + twoWay + "; " + neighbor);
+        TwoWayCity anotherTwoWay = new TwoWayCity("Второй двусторонний");
+        twoWay.addRoute(anotherTwoWay, 4);
+        System.out.println("Два двусторонних города: " + twoWay + "; " + anotherTwoWay);
+        //2.1.3
     }
 }

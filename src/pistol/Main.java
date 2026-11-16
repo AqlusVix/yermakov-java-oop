@@ -31,5 +31,23 @@ public class Main {
             System.out.println(error.getMessage());
         }
         //1.6.5
+
+        //2.1.4
+        MachineGun standard = new MachineGun();
+        MachineGun halfRate = new MachineGun(10);
+        MachineGun automatic = new MachineGun(10, 3);
+        System.out.println("Автомат по умолчанию: вместимость " + standard.getMaxBullets()
+                + ", скорострельность " + standard.getFireRate());
+        System.out.println("Автомат с обоймой 10: скорострельность " + halfRate.getFireRate());
+        automatic.load(10);
+        automatic.shoot();
+        automatic.shoot(2);
+        System.out.println("Осталось патронов: " + automatic.getBullets());
+        try {
+            new MachineGun(10, 0);
+        } catch (IllegalArgumentException error) {
+            System.out.println(error.getMessage());
+        }
+        //2.1.4
     }
 }

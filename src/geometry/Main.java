@@ -125,5 +125,19 @@ public class Main {
         System.out.println("После изменения первой линии: "
                 + separateFirst + "; " + separateSecond);
         //1.6.6
+
+        //2.1.2
+        List<Point> corners = List.of(new Point(1, 1), new Point(4, 1), new Point(4, 5));
+        Polyline openPolyline = new Polyline(corners);
+        ClosedPolyline closedPolyline = new ClosedPolyline(corners);
+        System.out.println("Открытая ломаная: " + openPolyline.getLength());
+        System.out.println("Замкнутая ломаная: " + closedPolyline.getLength());
+        //2.1.2
+
+        //2.1.5
+        Point3D point3D = new Point3D(3, 5, 7);
+        System.out.println("Трехмерная точка: " + point3D);
+        // Класс Point разрешает наследование только классу Point3D.
+        //2.1.5
     }
 }
