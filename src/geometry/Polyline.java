@@ -3,7 +3,7 @@ package geometry;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Polyline {
+public class Polyline implements LengthMeasurable {
     private List<Point> points;
 
     public Polyline() {
@@ -28,6 +28,7 @@ public class Polyline {
         }
     }
 
+    @Override
     public int getLength() {
         int length = 0;
         for (int i = 1; i < points.size(); i++) {

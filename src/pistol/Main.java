@@ -56,5 +56,21 @@ public class Main {
         System.out.println("Патронов в оружии: " + weapon.ammo());
         // Weapon нельзя создать напрямую: это абстрактный класс.
         //2.2.1
+
+        //2.3.8
+        Shooter withoutWeapon = new Shooter("Первый");
+        Shooter withPistol = new Shooter("Второй");
+        Shooter withMachineGun = new Shooter("Третий");
+        withPistol.setWeapon(new Pistol(1));
+        MachineGun shooterMachineGun = new MachineGun(3, 2);
+        shooterMachineGun.load(3);
+        withMachineGun.setWeapon(shooterMachineGun);
+        System.out.println(withoutWeapon.getName() + ":");
+        withoutWeapon.shoot();
+        System.out.println(withPistol.getName() + ":");
+        withPistol.shoot();
+        System.out.println(withMachineGun.getName() + ":");
+        withMachineGun.shoot();
+        //2.3.8
     }
 }

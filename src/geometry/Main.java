@@ -139,5 +139,28 @@ public class Main {
         System.out.println("Трехмерная точка: " + point3D);
         // Класс Point разрешает наследование только классу Point3D.
         //2.1.5
+
+        //2.3.5
+        Line lengthLine = new Line(0, 0, 3, 4);
+        Polyline lengthPolyline = new Polyline(List.of(
+                new Point(0, 0), new Point(0, 3), new Point(4, 3)));
+        System.out.println("Сумма длин: " + GeometryUtils.totalLength(
+                List.of(lengthLine, lengthPolyline)));
+        //2.3.5
+
+        //2.3.6
+        Polyline closedSquare = square.toPolyline();
+        System.out.println("Квадрат возвращает замкнутую ломаную: "
+                + (closedSquare instanceof ClosedPolyline));
+        System.out.println("Ее длина: " + closedSquare.getLength());
+        //2.3.6
+
+        //2.3.7
+        Square firstSquare = new Square(0, 0, 2);
+        Square secondSquare = new Square(5, 5, 3);
+        Polyline combined = GeometryUtils.combine(List.of(firstSquare, secondSquare));
+        System.out.println("Объединенная ломаная: " + combined);
+        System.out.println("Ее длина: " + combined.getLength());
+        //2.3.7
     }
 }

@@ -2,7 +2,7 @@ package geometry;
 
 import java.util.List;
 
-public class Square {
+public class Square implements PolylineProvider {
     private Point topLeft;
     private int side;
 
@@ -29,13 +29,18 @@ public class Square {
     public Polyline toPolyline() {
         int x = topLeft.getX();
         int y = topLeft.getY();
-        return new Polyline(List.of(
+        return new ClosedPolyline(List.of(
                 new Point(x, y),
                 new Point(x + side, y),
                 new Point(x + side, y + side),
                 new Point(x, y + side),
                 new Point(x, y)
         ));
+    }
+
+    @Override
+    public Polyline getPolyline() {
+        return toPolyline();
     }
 
     @Override

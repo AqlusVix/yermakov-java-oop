@@ -1,6 +1,6 @@
 package geometry;
 
-public class Line {
+public class Line implements LengthMeasurable {
     private Point start;
     private Point end;
 
@@ -37,6 +37,7 @@ public class Line {
         this.end = new Point(x1, y1);
     }
 
+    @Override
     public int getLength() {
         int dx = end.getX() - start.getX();
         int dy = end.getY() - start.getY();

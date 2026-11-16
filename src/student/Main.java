@@ -44,14 +44,15 @@ public class Main {
         //1.5.6
 
         //1.6.8
-        Student checkedStudent = new Student("Проверка", 2, 5);
+        GradeRule twoToFive = grade -> grade >= 2 && grade <= 5;
+        Student checkedStudent = new Student("Проверка", twoToFive, 2, 5);
         List<Integer> externalGrades = new ArrayList<>(List.of(2, 5));
         checkedStudent.setGrades(externalGrades);
         externalGrades.set(0, 1);
         checkedStudent.addGrade(4);
         System.out.println("Допустимые оценки: " + checkedStudent.getGrades());
         try {
-            new Student("Ошибка", 6);
+            new Student("Ошибка", twoToFive, 6);
         } catch (IllegalArgumentException error) {
             System.out.println(error.getMessage());
         }
@@ -72,5 +73,23 @@ public class Main {
         }
         System.out.println("Оценки после проверок: " + checkedStudent.getGrades());
         //1.6.8
+
+        //2.3.9
+        GradeRule zeroOrOne = grade -> grade == 0 || grade == 1;
+        GradeRule even = grade -> grade % 2 == 0;
+        Student vasyaByRule = new Student("Вася", zeroOrOne, 1, 0);
+        Student petyaByRule = new Student("Петя", even, 2, 4);
+        vasyaByRule.addGrade(1);
+        petyaByRule.addGrade(6);
+        System.out.println(vasyaByRule);
+        System.out.println(petyaByRule);
+        try {
+            petyaByRule.addGrade(3);
+        } catch (IllegalArgumentException error) {
+            System.out.println(error.getMessage());
+        }
+        Student unrestricted = new Student("Без правила", -1, 7);
+        System.out.println(unrestricted);
+        //2.3.9
     }
 }

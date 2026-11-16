@@ -6,9 +6,15 @@ import java.util.List;
 public class Student {
     private String name;
     private List<Integer> grades;
+    private final GradeRule gradeRule;
 
     public Student(String name, int... grades) {
+        this(name, null, grades);
+    }
+
+    public Student(String name, GradeRule gradeRule, int... grades) {
         this.name = name;
+        this.gradeRule = gradeRule;
         this.grades = new ArrayList<>();
         for (int grade : grades) {
             addGrade(grade);
@@ -46,9 +52,9 @@ public class Student {
         grades.set(index, grade);
     }
 
-    private static void checkGrade(Integer grade) {
-        if (grade == null || grade < 2 || grade > 5) {
-            throw new IllegalArgumentException("Оценка должна быть от 2 до 5");
+    private void checkGrade(Integer grade) {
+        if (grade == null || (gradeRule != null && !gradeRule.isValid(grade))) {
+            throw new IllegalArgumentException("Оценка не соответствует правилу");
         }
     }
 
