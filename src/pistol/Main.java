@@ -49,5 +49,12 @@ public class Main {
             System.out.println(error.getMessage());
         }
         //2.1.4
+
+        //2.2.1
+        Weapon weapon = new Pistol(2);
+        weapon.shoot();
+        System.out.println("Патронов в оружии: " + weapon.ammo());
+        // Weapon нельзя создать напрямую: это абстрактный класс.
+        //2.2.1
     }
 }

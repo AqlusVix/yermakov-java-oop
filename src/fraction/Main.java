@@ -29,5 +29,11 @@ public class Main {
         // Класс Fraction объявлен final: от него нельзя унаследовать изменяемую дробь.
         System.out.println("Неизменяемая дробь: " + new Fraction(4, 6));
         //2.1.1
+
+        //2.2.2
+        Number number = new Fraction(3, 2);
+        System.out.println("Как int: " + number.intValue());
+        System.out.println("Как double: " + number.doubleValue());
+        //2.2.2
     }
 }

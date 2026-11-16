@@ -1,0 +1,19 @@
+package figures;
+
+public class Triangle extends Figure {
+    private final double base;
+    private final double height;
+
+    public Triangle(double base, double height) {
+        if (base <= 0 || height <= 0) {
+            throw new IllegalArgumentException("Основание и высота должны быть положительными");
+        }
+        this.base = base;
+        this.height = height;
+    }
+
+    @Override
+    public double getArea() {
+        return base * height / 2;
+    }
+}

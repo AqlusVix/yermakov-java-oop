@@ -1,6 +1,6 @@
 package fraction;
 
-public final class Fraction {
+public final class Fraction extends Number {
     private final int numerator;
     private final int denominator;
 
@@ -60,6 +60,26 @@ public final class Fraction {
 
     public Fraction div(int number) {
         return div(new Fraction(number, 1));
+    }
+
+    @Override
+    public int intValue() {
+        return numerator / denominator;
+    }
+
+    @Override
+    public long longValue() {
+        return (long) numerator / denominator;
+    }
+
+    @Override
+    public float floatValue() {
+        return (float) numerator / denominator;
+    }
+
+    @Override
+    public double doubleValue() {
+        return (double) numerator / denominator;
     }
 
     @Override
