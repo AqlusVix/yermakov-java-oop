@@ -145,7 +145,7 @@ public class Main {
         Polyline lengthPolyline = new Polyline(List.of(
                 new Point(0, 0), new Point(0, 3), new Point(4, 3)));
         System.out.println("Сумма длин: " + GeometryUtils.totalLength(
-                List.of(lengthLine, lengthPolyline)));
+                lengthLine, lengthPolyline));
         //2.3.5
 
         //2.3.6
@@ -158,7 +158,7 @@ public class Main {
         //2.3.7
         Square firstSquare = new Square(0, 0, 2);
         Square secondSquare = new Square(5, 5, 3);
-        Polyline combined = GeometryUtils.combine(List.of(firstSquare, secondSquare));
+        Polyline combined = GeometryUtils.combine(firstSquare, secondSquare);
         System.out.println("Объединенная ломаная: " + combined);
         System.out.println("Ее длина: " + combined.getLength());
         //2.3.7

@@ -1,10 +1,7 @@
 package geometry;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class GeometryUtils {
-    public static int totalLength(List<? extends LengthMeasurable> objects) {
+    public static int totalLength(LengthMeasurable... objects) {
         int result = 0;
         for (LengthMeasurable object : objects) {
             result += object.getLength();
@@ -12,11 +9,13 @@ public class GeometryUtils {
         return result;
     }
 
-    public static Polyline combine(List<? extends PolylineProvider> objects) {
-        List<Point> points = new ArrayList<>();
+    public static Polyline combine(PolylineProvider... objects) {
+        Polyline result = new Polyline();
         for (PolylineProvider object : objects) {
-            points.addAll(object.getPolyline().getPoints());
+            for (Point point : object.getPolyline().getPoints()) {
+                result.addPoints(point);
+            }
         }
-        return new Polyline(points);
+        return result;
     }
 }

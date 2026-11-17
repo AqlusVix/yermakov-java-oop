@@ -1,7 +1,5 @@
 package figures;
 
-import java.util.List;
-
 public class Main {
     public static void main() {
         //2.2.4
@@ -17,7 +15,7 @@ public class Main {
 
         //2.3.3
         System.out.println("Общая площадь: " + FigureUtils.totalArea(
-                List.of(new Circle(1), new Circle(2), new Square(3), new Square(4))));
+                new Circle(1), new Circle(2), new Square(3), new Square(4)));
         //2.3.3
     }
 }

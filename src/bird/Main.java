@@ -1,7 +1,5 @@
 package bird;
 
-import java.util.List;
-
 public class Main {
     public static void main() {
         //2.2.3
@@ -14,8 +12,8 @@ public class Main {
         //2.2.3
 
         //2.3.2
-        BirdMarket.singAll(List.of(new Sparrow(), new Sparrow(), new Cuckoo(),
-                new Parrot("Привет"), new Parrot("Я попугай")));
+        BirdMarket.singAll(new Sparrow(), new Sparrow(), new Cuckoo(),
+                new Parrot("Привет"), new Parrot("Я попугай"));
         //2.3.2
     }
 }
