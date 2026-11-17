@@ -37,5 +37,34 @@ public class Main {
             throw new IllegalStateException("Закрытое подключение не должно терять связь", error);
         }
         //4.1.3
+
+        //4.2.1
+        try {
+            readData();
+        } catch (ConnectionLostException error) {
+            System.out.println("Чтение прервано: " + error.getMessage());
+        }
+        //4.2.1
+
+        //4.2.4
+        ExampleConnector connector = new ExampleConnector();
+        try (Connection exampleConnection = new Connection("ermakov.edu")) {
+            try {
+                connector.makeConnect(exampleConnection);
+            } catch (ConnectionLostException | ClosedConnectionException error) {
+                connector.unregister();
+            } catch (RuntimeException ignored) {
+                // Ошибка регистрации: makeConnect уже завершился.
+            }
+        }
+        //4.2.4
+    }
+
+    public static void readData() throws ConnectionLostException {
+        try (Connection connection = new Connection("ermakov.edu")) {
+            for (int i = 0; i < 10; i++) {
+                System.out.println(connection.nextString());
+            }
+        }
     }
 }

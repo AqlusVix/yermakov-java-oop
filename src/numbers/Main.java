@@ -2,6 +2,7 @@ package numbers;
 
 import fraction.Fraction;
 import java.math.BigInteger;
+import java.util.List;
 
 import static java.lang.Integer.parseInt;
 import static java.lang.Math.pow;
@@ -27,6 +28,10 @@ public class Main {
             System.out.println("Передайте основание и степень аргументами программы");
         }
         //3.1.4
+
+        //4.2.2
+        System.out.println(NumberUtils.divideStrings(List.of("100", "текст", "2", "5")));
+        //4.2.2
     }
 
     public static double power(String x, String y) {

@@ -99,5 +99,13 @@ public class Main {
             System.out.println("Недопустимая оценка для студента " + error.getMessage());
         }
         //4.1.1
+
+        //4.2.3
+        Student first = new Student("Первый", 5);
+        Student rejectsEveryGrade = new Student("Второй", grade -> false);
+        String result = StudentUtils.addRandomGrades(List.of(first, rejectsEveryGrade));
+        System.out.println(result);
+        System.out.println("Оценки первого после неудачи: " + first.getGrades());
+        //4.2.3
     }
 }
