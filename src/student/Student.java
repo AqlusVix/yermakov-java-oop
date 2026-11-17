@@ -54,7 +54,7 @@ public class Student {
 
     private void checkGrade(Integer grade) {
         if (grade == null || (gradeRule != null && !gradeRule.isValid(grade))) {
-            throw new IllegalArgumentException("Оценка не соответствует правилу");
+            throw new InvalidGradeException(name);
         }
     }
 

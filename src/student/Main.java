@@ -91,5 +91,13 @@ public class Main {
         Student unrestricted = new Student("Без правила", -1, 7);
         System.out.println(unrestricted);
         //2.3.9
+
+        //4.1.1
+        try {
+            petyaByRule.addGrade(3);
+        } catch (InvalidGradeException error) {
+            System.out.println("Недопустимая оценка для студента " + error.getMessage());
+        }
+        //4.1.1
     }
 }
