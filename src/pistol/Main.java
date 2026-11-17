@@ -72,5 +72,11 @@ public class Main {
         System.out.println(withMachineGun.getName() + ":");
         withMachineGun.shoot();
         //2.3.8
+
+        //3.2.2
+        Pistol inheritedAmmo = new Pistol(4);
+        System.out.println("Патронов извлечено: " + inheritedAmmo.unload());
+        System.out.println("Патронов осталось: " + inheritedAmmo.ammo());
+        //3.2.2
     }
 }

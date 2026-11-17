@@ -26,11 +26,14 @@ public class Employee {
             return;
         }
         if (this.department != null) {
-            this.department.removeEmployee(this);
+            this.department.employees.remove(this);
+            if (this.department.manager == this) {
+                this.department.manager = null;
+            }
         }
         this.department = department;
         if (department != null) {
-            department.addEmployee(this);
+            department.employees.add(this);
         }
     }
 

@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Department {
     private String name;
-    private Employee manager;
-    private List<Employee> employees = new ArrayList<>();
+    Employee manager;
+    final List<Employee> employees = new ArrayList<>();
 
     public Department(String name) {
         this.name = name;
@@ -25,7 +25,7 @@ public class Department {
     }
 
     public void setManager(Employee manager) {
-        if (manager != null && manager.getDepartment() != this) {
+        if (manager != null) {
             manager.setDepartment(this);
         }
         this.manager = manager;
@@ -33,17 +33,6 @@ public class Department {
 
     public List<Employee> getEmployees() {
         return List.copyOf(employees);
-    }
-
-    void addEmployee(Employee employee) {
-        employees.add(employee);
-    }
-
-    void removeEmployee(Employee employee) {
-        employees.remove(employee);
-        if (manager == employee) {
-            manager = null;
-        }
     }
 
     @Override

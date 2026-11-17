@@ -162,5 +162,12 @@ public class Main {
         System.out.println("Объединенная ломаная: " + combined);
         System.out.println("Ее длина: " + combined.getLength());
         //2.3.7
+
+        //3.1.5
+        Point ownPoint = new Point(3, 5);
+        java.awt.Point awtPoint = new java.awt.Point(3, 5);
+        System.out.println("Своя точка: " + ownPoint);
+        System.out.println("Точка java.awt: " + awtPoint);
+        //3.1.5
     }
 }

@@ -1,7 +1,7 @@
 package pistol;
 
 public abstract class Weapon {
-    private int ammo;
+    protected int ammo;
 
     public Weapon(int ammo) {
         if (ammo < 0) {
@@ -28,12 +28,6 @@ public abstract class Weapon {
         }
         ammo = Math.addExact(ammo, amount);
         return 0;
-    }
-
-    protected final int clearAmmo() {
-        int removed = ammo;
-        ammo = 0;
-        return removed;
     }
 
     public abstract void shoot();

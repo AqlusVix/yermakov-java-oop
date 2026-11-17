@@ -42,7 +42,9 @@ public class Pistol extends Weapon {
     }
 
     public int unload() {
-        return clearAmmo();
+        int unloaded = ammo;
+        ammo = 0;
+        return unloaded;
     }
 
     @Override

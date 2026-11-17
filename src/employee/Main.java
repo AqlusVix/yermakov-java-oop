@@ -26,5 +26,15 @@ public class Main {
         newManager.setDepartment(sales);
         System.out.println("После перевода начальника: " + it);
         //1.6.10
+
+        //3.2.1
+        Department support = new Department("Поддержка");
+        Employee supportManager = new Employee("Смирнов", sales);
+        support.setManager(supportManager);
+        System.out.println("После назначения: " + support);
+        System.out.println("Прежний отдел: " + sales);
+        supportManager.setDepartment(sales);
+        System.out.println("После перевода: " + support);
+        //3.2.1
     }
 }
